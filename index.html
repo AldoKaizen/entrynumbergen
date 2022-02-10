@@ -1,6 +1,41 @@
-<html> 
-	<head><title>aa</title> </head>
-	<body> 
-		<h1> aa </h1>
-	</body>
-</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Entry Number Generator</h2>
+
+<h3 id="gennum"></p>
+
+
+<script>
+    function a(){
+	
+    var generateNum = "286" + (Math.floor(Math.random() * (9999999 - 1000000) + 1000000));
+	console.log(generateNum);
+	var odd = 0;
+    for(var o = 1; o <= 9; o += 2) {
+        var oTemp = parseInt(generateNum[o]) * 2;
+        if(oTemp >= 10){
+            oTemp = parseInt(oTemp.toString()[1]) + 1;
+        }
+        console.log(oTemp);
+        odd += oTemp;
+    }
+
+    var pair = 0;
+    for(var p = 0; p <= 8; p += 2) {
+        pair += parseInt(generateNum[p]);
+    }
+
+    console.log(pair);
+    console.log(odd);
+    var summ = pair + odd;
+    var finaldigit = 10 - (summ % 10);
+    document.getElementById("gennum").innerHTML = generateNum.substring(3) + "-" + finaldigit;
+}
+a();
+	
+</script>
+
+</body>
+</html> 
