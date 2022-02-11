@@ -30,7 +30,7 @@
     console.log(pair);
     console.log(odd);
     var summ = pair + odd;
-    var finaldigit = 10 - (summ % 10);
+    var finaldigit = (10 - (summ % 10) % 10);
     document.getElementById("gennum").innerHTML = generateNum.substring(3) + "-" + finaldigit;
 }
 a();
