@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button onclick="location.href='index.html'" type="button"> < Back to home</button>
+    <h2><u>This week:</u></h2>
+    <h3 id="monday">On Monday: </h3>
+    <h3 id="wnd">On Wednesday: </h3>
+</body>
+<script>
+    var refDate = new Date(2022, 1, 16);
+    var today = new Date();
+    var diff = Math.floor((today - refDate) / (7 * 24 * 60 * 60 * 1000));
+
+    var cycle = diff % 4;
+    var group1Wnd = false;
+
+    switch (cycle) {
+        case 0:
+            group1Wnd = true;
+            break;
+            /*case 1:
+                break;
+            case 2:
+                break;*/
+        case 3:
+            group1Wnd = true;
+            break;
+        default:
+            break;
+    }
+
+    if (group1Wnd) {
+        document.getElementById("monday").innerHTML += cycle % 2 == 0 ? "Group 2 starts" : "First Sprint Estimation - ALL";
+        document.getElementById("wnd").innerHTML += "Group 1 starts";
+    } else {
+        document.getElementById("monday").innerHTML += cycle % 2 == 0 ? "Group 1 starts" : "First Sprint Estimation - ALL";
+        document.getElementById("wnd").innerHTML += "Group 2 starts";
+    }
+</script>
+
+</html>
