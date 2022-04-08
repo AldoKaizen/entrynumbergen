@@ -8,11 +8,14 @@
     <button onclick="location.href='index.html'" type="button"> < Back to home</button>
     <h2>Entry Number Generator</h2>
 
-    <h3 id="gennum">
-        </p>
+    <h3 id="gennum"></h3>
+	<button onclick="copy(numGen)" type="button"> Copy to clipboard</button><br><br>
+	
+	<button onclick="a(); copy(numGen)" type="button"> Regenerate and CTC</button>
 
 
         <script>
+			var numGen = "";
             function a() {
 
                 var generateNum = "286" + (Math.floor(Math.random() * (9999999 - 1000000) + 1000000));
@@ -37,8 +40,18 @@
                 var summ = pair + odd;
                 var finaldigit = (10 - (summ % 10) % 10);
                 document.getElementById("gennum").innerHTML = generateNum.substring(3) + "-" + finaldigit;
+				numGen = generateNum.substring(3) + "-" + finaldigit
             }
             a();
+			function copy(text) {
+				var input = document.createElement('input');
+				input.setAttribute('value', text);
+				document.body.appendChild(input);
+				input.select();
+				var result = document.execCommand('copy');
+				document.body.removeChild(input);
+				return result;
+			 }
         </script>
 
 </body>
