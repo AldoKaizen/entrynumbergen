@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="index.css">
 	<title>SB Tool Hub</title>
 	<link rel="icon" type="image/png" href="favicon.png">
+	
 </head>
 
 <body>
@@ -22,6 +23,11 @@
 		</div>
 	</div>
 	</a>
+	<script>
+		var msg = new SpeechSynthesisUtterance();
+		msg.text = "Bienvenido";
+		window.speechSynthesis.speak(msg);
+	</script>
 </body>
 
 </html>
