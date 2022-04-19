@@ -25,7 +25,9 @@
 	</a>
 	<script>
 		var msg = new SpeechSynthesisUtterance();
-		msg.text = "Bienvenido";
+		msg.text = "Welcome to Smart Border Tool Hub";
+		msg.lang = 'en';
+		msg.volume = 0.4;
 		window.speechSynthesis.speak(msg);
 	</script>
 </body>
