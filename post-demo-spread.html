@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>SB Tool Hub</title>
+</head>
+
+<body>
+    <button onclick="location.href='index.html'" type="button">
+        < Back to home</button> <h2>Post Demo Spread</h2>
+
+            <textarea id="samples" name="samples" rows="10" cols="13"></textarea><br>
+            <button onclick="spread()" type="button">Calculate Spread</button><br>
+
+            <h3 id="spread"></h3>
+            <h3 id="mean"></h3>
+
+            <script>
+                function spread() {
+                    let samples = document.getElementById("samples").value.split("\n").filter(x => x != "").filter(
+                        value => /^-?\d+\.?\d*$/.test(value));
+
+                    let samepleSize = samples.length;
+                    let mean;
+                    let cumulative = 0;
+                    for (var i of samples) {
+                        cumulative += parseFloat(i);
+                    }
+
+                    mean = cumulative / samepleSize;
+
+                    let distances = 0;
+
+                    for (var i of samples) {
+                        distances += Math.pow(parseFloat(i) - mean, 2);
+                    }
+
+                    document.getElementById("mean").innerHTML = "Mean: " + mean;
+                    document.getElementById("spread").innerHTML = "Spread: " + Math.sqrt(distances / samepleSize);
+
+                    console.log("Mean: " + mean);
+                    console.log("Spread: " + Math.sqrt(distances / samepleSize));
+                }
+            </script>
+
+</body>
+
+</html>
